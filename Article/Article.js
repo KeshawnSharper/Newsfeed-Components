@@ -1,3 +1,6 @@
+
+
+
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
 const data = [
@@ -112,3 +115,42 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function article(obj){
+  let aDiv = document.createElement("div")
+  aDiv.classList.add("article")
+  let heading = document.createElement("h2")
+  heading.textContent = obj.title
+  let p = document.createElement("p")
+  p.classList.add("date")
+  p.textContent = obj.date
+  let firstParagraph = document.createElement("p")
+  firstParagraph.textContent=obj.firstParagraph
+  let secondParagraph = document.createElement("p")
+  secondParagraph.textContent=obj.secondParagraph
+  let thirdParagraph = document.createElement("p")
+  thirdParagraph.textContent=obj.thridParagraph
+  let span = document.createElement("span")
+  span.classList.add('expandButton')
+  span.textContent = 'Click to Expand'
+  aDiv.appendChild(heading)
+  aDiv.appendChild(p)
+  aDiv.appendChild(span)
+  aDiv.appendChild(firstParagraph)
+  aDiv.appendChild(secondParagraph)
+  aDiv.appendChild(thirdParagraph)
+ 
+span.addEventListener("click", function(){
+  aDiv.classList.toggle('article-open')
+  aDiv.contains("") ? span.textContent = 'Click to Close' : span.textContent = 'Click to Expand'
+})
+
+return aDiv
+}
+let articles = document.querySelector('.articles')
+data.forEach(i => articles.appendChild(article(i)))
+
+
+
+
+
+

@@ -18,6 +18,7 @@ let menuItems = [
       {each menu item as a list item}
     </ul>
   </div>
+  
 
   The function takes an array as its only argument.
 
@@ -33,3 +34,31 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+function menu(arr){
+ let div = document.createElement('div')
+ div.classList.add('menu')
+ let ul = document.createElement('ul')
+ div.appendChild(ul)
+
+ arr.forEach(i => {
+  let li = document.createElement('li')
+  li.textContent = i 
+  ul.appendChild(li) 
+})
+$(document).ready(function(){
+  //let button = document.querySelector('.menu-button')
+  //button.addEventListener("click", function(){
+    //div.classList.toggle("menu--open")
+    $(".menu-button").on("click", function() {
+      $(".menu").animate({width:'toggle'},200);
+  });
+  });
+  return div 
+    }
+    let header = document.querySelector('.header')
+    header.appendChild(menu(menuItems))
+
+    
+
+    
+
